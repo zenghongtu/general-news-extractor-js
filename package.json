@@ -1,8 +1,11 @@
 {
   "name": "general-news-extractor",
-  "version": "0.0.0",
-  "description": "",
-  "keywords": [],
+  "version": "0.0.1",
+  "description": "一个新闻网页的正文、标题、作者和日期的通用抽取工具",
+  "keywords": [
+    "news",
+    "extractor"
+  ],
   "main": "dist/general-news-extractor.cjs.js",
   "module": "dist/general-news-extractor.esm.js",
   "typings": "dist/types/general-news-extractor.d.ts",
@@ -12,11 +15,11 @@
   "author": "zenghongtu <zenghongtu@gmail.com>",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/zenghongtu/general-news-extractor-js"
   },
   "license": "MIT",
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=8.0.0"
   },
   "scripts": {
     "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
