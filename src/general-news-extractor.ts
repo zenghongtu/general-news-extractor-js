@@ -1,4 +1,4 @@
-import ContentExtractor from './content-extractor'
+import ContentExtractor from './core/content-extractor'
 import { removeNoiseNode, preParse } from './utils'
 
 export default class GeneralNewsExtractor {

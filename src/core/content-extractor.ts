@@ -1,5 +1,5 @@
 import { sampleStdev } from 'stats-lite'
-import { iteratorNode } from './utils'
+import { iteratorNode } from '../utils'
 
 export default class ContentExtractor {
   contentTag: string
