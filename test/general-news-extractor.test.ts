@@ -28,11 +28,10 @@ describe('GeneralNewsExtractor test', () => {
     for (const file of files) {
       const html = readFileSync(file, { encoding: 'utf8' })
       const result = new GeneralNewsExtractor().extract(html)
-      const data = `
-      ${file}
-      ${JSON.stringify(result)}
-      ===================\n
-      `
+      const data = `=========filename: ${file}=========
+${JSON.stringify(result, null, 4)}
+
+`
       writeFileSync(saveFilename, data, { flag: 'a' })
     }
   })
