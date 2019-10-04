@@ -10,16 +10,13 @@ export default class AuthorExtractor {
   }
 
   extractByPattern($: CheerioStatic) {
-    const content = $('body  *')
+    const content = $('body')
       .contents()
-      .filter((idx, el) => {
-        return el.type === 'text'
-      })
       .map((idx, el) => {
-        return el.data
+        return $(el).text()
       })
       .get()
-      .join(' ')
+      .join('')
 
     for (const pattern of AUTHOR_PATTERN_LIST) {
       const result = content.match(new RegExp(pattern))
