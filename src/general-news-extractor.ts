@@ -15,13 +15,16 @@ export default class GeneralNewsExtractor {
     this.authorExtractor = new AuthorExtractor()
     this.dateTimerExtractor = new DateTimeExtractor()
   }
-  extract(html: string, titleSelector = '', noiseNodeList: string[] = []) {
+  extract(
+    html: string,
+    { titleSelector = '', authorSelector = '', dateTimeSelector = '', noiseNodeList = [] } = {}
+  ) {
     const $ = preParse(html)
     removeNoiseNode($, noiseNodeList)
     const content = this.contentExtractor.extract($)
     const title = this.titleExtractor.extract($, titleSelector)
-    const author = this.authorExtractor.extract($)
-    const publishTime = this.dateTimerExtractor.extract($)
+    const author = this.authorExtractor.extract($, authorSelector)
+    const publishTime = this.dateTimerExtractor.extract($, dateTimeSelector)
 
     return { title, author, publishTime, content: content[0].text }
   }
