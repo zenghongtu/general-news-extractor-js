@@ -7,52 +7,38 @@ import {
 import * as cheerio from 'cheerio'
 
 export const normalizeNode = ($: CheerioStatic) => {
-  $('html')
-    .find('*')
-    .each((idx, el) => {
-      const tagName = el.tagName
+  $('html *').each((idx, el) => {
+    const tagName = el.tagName
 
-      if (USELESS_TAG.includes(tagName)) {
-        $(el).remove()
-        return
-      }
+    if (USELESS_TAG.includes(tagName)) {
+      $(el).remove()
+      return
+    }
 
-      if (!TAGS_CAN_NOT_BE_REMOVE_IF_EMPTY.includes(tagName) && isEmptyElement(el)) {
-        $(el).remove()
-        return
-      }
+    if (!TAGS_CAN_NOT_BE_REMOVE_IF_EMPTY.includes(tagName) && isEmptyElement(el)) {
+      $(el).remove()
+      return
+    }
 
-      if (tagName === 'p') {
-        $(el)
-          .find('span')
-          .each((idx, el) => {
-            const text = $(el).text()
-            $(el).replaceWith(text)
-          })
-        $(el)
-          .find('strong')
-          .each((idx, el) => {
-            const text = $(el).text()
-            $(el).replaceWith(text)
-          })
-        $(el)
-          .find('em')
-          .each((idx, el) => {
-            const text = $(el).text()
-            $(el).replaceWith(text)
-          })
-      }
+    if (tagName === 'p') {
+      $(el)
+        .find('span,strong,em')
+        .each((idx, el) => {
+          const text = $(el).text()
+          $(el).replaceWith(text)
+        })
+    }
 
-      const classString = el.attribs.class
-      if (classString && USELESS_ATTR.find(attr => classString.includes(attr))) {
-        $(el).remove()
-        return
-      }
+    const classString = el.attribs.class
+    if (classString && USELESS_ATTR.find(attr => classString.includes(attr))) {
+      $(el).remove()
+      return
+    }
 
-      if (!el.children.length && ['div', 'span'].includes(tagName)) {
-        el.tagName = 'p'
-      }
-    })
+    if (!el.children.length && ['div', 'span'].includes(tagName)) {
+      el.tagName = 'p'
+    }
+  })
 }
 
 export const preParse = (html: string) => {

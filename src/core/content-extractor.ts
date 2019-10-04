@@ -13,27 +13,25 @@ export default class ContentExtractor {
   }
 
   extract($: CheerioStatic) {
-    $('body')
-      .find('*')
-      .each((idx, node) => {
-        const { density, tiText, ti, lti, tgi, ltgi } = this.calcTextDensity(node, $)
-        const textTagCount = this.countTextTag($, node, this.contentTag)
-        const sbdi = this.calcSbdi(tiText, ti, lti)
+    $('body *').each((idx, node) => {
+      const { density, tiText, ti, lti, tgi, ltgi } = this.calcTextDensity(node, $)
+      const textTagCount = this.countTextTag($, node, this.contentTag)
+      const sbdi = this.calcSbdi(tiText, ti, lti)
 
-        const info = {
-          ti,
-          lti,
-          tgi,
-          ltgi,
-          node,
-          density,
-          text: tiText,
-          textTagCount,
-          sbdi
-        }
+      const info = {
+        ti,
+        lti,
+        tgi,
+        ltgi,
+        node,
+        density,
+        text: tiText,
+        textTagCount,
+        sbdi
+      }
 
-        this.nodeInfo.push(info)
-      })
+      this.nodeInfo.push(info)
+    })
     const std = this.calcStandardDeviation()
     this.calcNewScore(std)
     const result = this.nodeInfo.sort((a, b) => b.score - a.score)
