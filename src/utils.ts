@@ -48,7 +48,7 @@ export const preParse = (html: string) => {
   return $
 }
 
-export const isEmptyElement = node => {
+export const isEmptyElement = (node: CheerioElement) => {
   return !node.children.length && !node.data
 }
 
@@ -58,7 +58,7 @@ export const removeNoiseNode = ($: CheerioStatic, noiseSelectorList: string[] = 
   }
 }
 
-export const iteratorNode = function*(element: any) {
+export const iteratorNode = function*(element: CheerioElement) {
   yield element
   if (element.children) {
     for (const subElement of element.children) {

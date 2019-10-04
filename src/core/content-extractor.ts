@@ -108,7 +108,7 @@ export default class ContentExtractor {
     TGi：节点 i 的标签数
     LTGi：节点 i 的带连接的标签数
   */
-  calcTextDensity(element, $) {
+  calcTextDensity(element: CheerioElement, $: CheerioStatic) {
     const tiText = this.getAllTiText(element, $).join('\n')
     const ti = tiText.length
 
@@ -124,9 +124,9 @@ export default class ContentExtractor {
     return { density, tiText, ti, lti, tgi, ltgi }
   }
 
-  countPunctuationNum(text) {
+  countPunctuationNum(text: string) {
     let count = 0
-    for (let char in text) {
+    for (const char of text) {
       if (this.punctuation.has(char)) {
         count += 1
       }
@@ -141,7 +141,7 @@ export default class ContentExtractor {
         SbDi: 符号密度
         Sbi：符号数量
    */
-  calcSbdi(text, ti, lti) {
+  calcSbdi(text: string, ti: number, lti: number) {
     const sbi = this.countPunctuationNum(text)
     const sbdi = (ti - lti) / (sbi + 1)
     return sbdi || 1

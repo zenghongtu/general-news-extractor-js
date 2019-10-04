@@ -1,7 +1,7 @@
 import { TITLE_TAG_SELECTOR, TITLE_SPLIT_CHAR_PATTERN } from '../consts'
 
 export default class TitleExtractor {
-  extractBySelector($, titleSelector) {
+  extractBySelector($: CheerioStatic, titleSelector: string) {
     if (titleSelector) {
       $(titleSelector)
         .text()
@@ -9,7 +9,7 @@ export default class TitleExtractor {
     }
     return ''
   }
-  extractByTitle($) {
+  extractByTitle($: CheerioStatic) {
     const text = $('title')
       .text()
       .trim()
@@ -17,14 +17,14 @@ export default class TitleExtractor {
 
     return text || ''
   }
-  extractByTag($) {
+  extractByTag($: CheerioStatic) {
     return (
       $(TITLE_TAG_SELECTOR)
         .text()
         .trim() || ''
     )
   }
-  extract($, titleSelector) {
+  extract($: CheerioStatic, titleSelector: string) {
     const title =
       this.extractBySelector($, titleSelector) || this.extractByTitle($) || this.extractByTag($)
     return title

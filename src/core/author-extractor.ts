@@ -1,6 +1,6 @@
 import { AUTHOR_PATTERN_LIST } from '../consts'
 export default class AuthorExtractor {
-  extractBySelector($, authorSelector) {
+  extractBySelector($: CheerioStatic, authorSelector: string) {
     if (authorSelector) {
       $(authorSelector)
         .text()
@@ -27,7 +27,7 @@ export default class AuthorExtractor {
     return ''
   }
 
-  extract($, authorSelector = '') {
+  extract($: CheerioStatic, authorSelector = '') {
     const author = this.extractBySelector($, authorSelector) || this.extractByPattern($)
 
     return author

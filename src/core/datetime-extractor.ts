@@ -1,7 +1,7 @@
 import { DATETIME_PATTERN_LIST } from '../consts'
 
 export default class DateTimeExtractor {
-  extractBySelector($, authorSelector) {
+  extractBySelector($: CheerioStatic, authorSelector: string) {
     if (authorSelector) {
       $(authorSelector)
         .text()
@@ -31,7 +31,7 @@ export default class DateTimeExtractor {
     return ''
   }
 
-  extract($, dateTimeSelector = '') {
+  extract($: CheerioStatic, dateTimeSelector = '') {
     const dateTime = this.extractBySelector($, dateTimeSelector) || this.extractByPattern($)
 
     return dateTime
