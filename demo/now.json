@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "name": "general-news-extractor-demo",
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@now/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.js"
+    }
+  ]
+}
