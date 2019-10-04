@@ -5,7 +5,6 @@
   "keywords": [],
   "main": "dist/general-news-extractor.cjs.js",
   "module": "dist/general-news-extractor.esm.js",
-  "browser": "dist/general-news-extractor.umd.js",
   "typings": "dist/types/general-news-extractor.d.ts",
   "files": [
     "dist"

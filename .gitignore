@@ -61,3 +61,6 @@ typings/
 .next
 
 *results.txt
+
+/docs
+/dist
