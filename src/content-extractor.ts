@@ -1,4 +1,4 @@
-import { std as mathStd } from 'mathjs'
+import { sampleStdev } from 'stats-lite'
 import { iteratorNode } from './utils'
 
 export default class ContentExtractor {
@@ -93,7 +93,7 @@ export default class ContentExtractor {
 
   calcStandardDeviation(): number {
     const scoreList = this.nodeInfo.map(item => item.density)
-    const std = mathStd(scoreList)
+    const std = sampleStdev(scoreList)
     return std
   }
 

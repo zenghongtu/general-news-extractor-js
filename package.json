@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "description": "",
   "keywords": [],
-  "main": "dist/general-news-extractor.umd.js",
-  "module": "dist/general-news-extractor.es5.js",
+  "main": "dist/general-news-extractor.cjs.js",
+  "module": "dist/general-news-extractor.esm.js",
+  "browser": "dist/general-news-extractor.umd.js",
   "typings": "dist/types/general-news-extractor.d.ts",
   "files": [
     "dist"
@@ -88,6 +89,7 @@
     "@types/jest": "^24.0.18",
     "@types/mathjs": "^6.0.2",
     "@types/node": "^12.7.8",
+    "@types/stats-lite": "^2.2.0",
     "colors": "^1.3.2",
     "commitizen": "^3.0.0",
     "coveralls": "^3.0.2",
@@ -97,6 +99,7 @@
     "husky": "^1.0.1",
     "jest": "^24.9.0",
     "jest-config": "^24.9.0",
+    "jquery": "1.11.0",
     "lint-staged": "^8.0.0",
     "lodash.camelcase": "^4.3.0",
     "prettier": "^1.14.3",
@@ -104,6 +107,7 @@
     "replace-in-file": "^3.4.2",
     "rimraf": "^2.6.2",
     "rollup": "^0.67.0",
+    "rollup-plugin-alias": "^2.0.1",
     "rollup-plugin-commonjs": "^9.1.8",
     "rollup-plugin-json": "^3.1.0",
     "rollup-plugin-node-resolve": "^3.4.0",
@@ -122,6 +126,6 @@
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
-    "mathjs": "^6.2.2"
+    "stats-lite": "^2.2.0"
   }
 }
