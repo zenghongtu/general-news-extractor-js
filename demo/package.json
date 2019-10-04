@@ -2,6 +2,7 @@
   "name": "general-news-extractor-demo",
   "version": "1.0.0",
   "description": "",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js"
