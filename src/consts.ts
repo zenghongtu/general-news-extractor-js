@@ -26,3 +26,6 @@ export const USELESS_ATTR = [
   'social',
   'submeta'
 ]
+export const TITLE_TAG_SELECTOR = 'h1,h2,h3,h4'
+
+export const TITLE_SPLIT_CHAR_PATTERN = '[-_|]'
